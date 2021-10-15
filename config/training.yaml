@@ -1,0 +1,23 @@
+target:
+  - Survived
+
+features:
+  - Age
+  - SibSp
+  - Parch
+  - Fare
+  - C
+  - Q
+  - S
+  - female
+  - Class_1
+  - Class_2
+  - Class_3
+
+parameter_space:
+  max_depth: [2, 3, 4, 5, 6]
+  num_leaves: [2, 3, 4, 5, 6, 7, 8]
+  learning_rate: [0.004, 0.005, 0.007, 0.009, 0.01, 0.011]
+  min_child_weight: [1, 2, 3, 4, 5]
+  gamma: [0.55, 0.6, 0.65]
+  colsample_bytree: [0.5, 0.6, 0.7, 0.8, 0.9, 1]

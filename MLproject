@@ -1,0 +1,21 @@
+name: rappi-challenge-pipeline
+
+conda_env: config/conda.yaml
+
+entry_points:
+  build_features:
+    parameters:
+      raw_data_path: {type: path, default: data/raw/}
+    command: "python src/features/build_features.py --raw_data_path {raw_data_path}"
+
+  train_lgbm:
+    parameters:
+      split_prop: {type: float, default: 0.8}
+    command: "python src/lgbm/train_lgbm.py --split_prop {split_prop}"
+
+  main:
+    parameters:
+      split_prop: {type: float, default: 0.8}
+      raw_data_path: {type: path, default: data/raw/}
+    command: "python src/main.py --split_prop {split_prop} --raw_data_path {raw_data_path}"
+
