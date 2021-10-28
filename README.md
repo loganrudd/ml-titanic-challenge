@@ -62,15 +62,15 @@ attempt to determine if a sub-run has already been executed successfully with th
 parameters and, if so, reuse the cached results.
 
 Running this Example
-^^^^^^^^^^^^^^^^^^^^
+----------------------------------
 
 **In your local machine**:
 
 First install requirements with conda:
-`$ conda create --name <env> --file requirements.txt
+`$ conda create --name <env> --file requirements.txt`
 
 (Note: Requirements installed for mac m1 ARM architecture and may not be compatible on other architectures)
-`
+
 In order for the multistep workflow to find the other steps, you must execute 
 ``mlflow run .`` from the root of the project. You can change the parameter space, features
 to use, and target variable to predict in /config/training.yaml and the compare the results
@@ -80,22 +80,16 @@ of various iterations by runnning ``mlflow ui`` in the root of the directory.
 
 First you need to setup your credentials
 
-.. code-block:: python
-
     token = dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
     dbutils.fs.put("file:///root/.databrickscfg","[DEFAULT]\nhost=https://community.cloud.databricks.com\ntoken = "+token,overwrite=True)
     
 then once uploaded as a repo to github you can go ahead and execute the project with the MLflow api:
-
-.. code-block:: python
 
     mlflow.run('git://github.com/<user>/rappi_challenge.git')
 
 Running Flask API
 ----------------------------------
 
-Running the API
-^^^^^^^^^^^^^^^^^^^^
 
 **In your local machine**:
 
